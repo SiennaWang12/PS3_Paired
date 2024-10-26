@@ -30,11 +30,12 @@ data = pd.DataFrame(np.random.rand(100), columns=['Random Numbers'])
 
 def preview_data(df):
     first_obj = df.head()
+    second_obj = df.describe()
     third_obj = alt.Chart(df).mark_bar().encode(
       alt.X("Random Numbers:Q", bin=alt.Bin(maxbins=20)),
       alt.Y("count()")
     )
-    return [first_obj, third_obj]
+    return [first_obj, second_obj, third_obj]
 
 preview_data(data)
 ```
